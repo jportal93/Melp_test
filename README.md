@@ -20,3 +20,8 @@ Deben Ejecutar Docker
 #docker-compose up
 
 
+De igual forma tiene el despliegue para K8S
+
+En el /test  se encuentran las consultas de test realizadas por Postman
+
+
