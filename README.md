@@ -16,6 +16,7 @@ Se deja la aplicación en Docker
 Deben Ejecutar Docker
 
 #docker-compose build 
+
 #docker-compose up
 
 
