@@ -1,0 +1,208 @@
+{
+	"info": {
+		"_postman_id": "95d53c68-73f1-4585-b7c3-1e871a6f673e",
+		"name": "restaurants",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "26039178"
+	},
+	"item": [
+		{
+			"name": "Get",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://web-api-rest.herokuapp.com/restaurants",
+					"protocol": "https",
+					"host": [
+						"web-api-rest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://web-api-rest.herokuapp.com/restaurants",
+					"protocol": "https",
+					"host": [
+						"web-api-rest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "DELETE",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"851f799f-0852-459e-b9b2-df92c43e7672\",\r\n        \"rating\": 1,\r\n        \"name\": \"Barajas, Bahena and Kano\",\r\n        \"site\": \"https://federico.com\",\r\n        \"email\": \"Anita_Mata71@hotmail.com\",\r\n        \"phone\": \"534 814 204\",\r\n        \"street\": \"82247 Mariano Entrada\",\r\n        \"city\": \"Mérida Alfredotown\",\r\n        \"state\": \"Durango\",\r\n        \"lat\": 19.4400570537131,\r\n        \"lng\": -99.1270470974249\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://web-api-rest.herokuapp.com/restaurants",
+					"protocol": "https",
+					"host": [
+						"web-api-rest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ID 404",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://web-api-rest.herokuapp.com/restaurants",
+					"protocol": "https",
+					"host": [
+						"web-api-rest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "POST",
+			"request": {
+				"method": "POST",
+				"header": [],
+				"body": {
+					"mode": "raw",
+					"raw": "{\r\n        \"id\": \"851f799f-0852-459e-b9b2-df92c43e7672\",\r\n        \"rating\": 1,\r\n        \"name\": \"Barajas, Bahena and Kano\",\r\n        \"site\": \"https://federico.com\",\r\n        \"email\": \"Anita_Mata71@hotmail.com\",\r\n        \"phone\": \"534 814 204\",\r\n        \"street\": \"82247 Mariano Entrada\",\r\n        \"city\": \"Mérida Alfredotown\",\r\n        \"state\": \"Durango\",\r\n        \"lat\": 19.4400570537131,\r\n        \"lng\": -99.1270470974249\r\n    }",
+					"options": {
+						"raw": {
+							"language": "json"
+						}
+					}
+				},
+				"url": {
+					"raw": "https://web-api-rest.herokuapp.com/restaurants",
+					"protocol": "https",
+					"host": [
+						"web-api-rest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ID 200",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://web-api-rest.herokuapp.com/restaurants",
+					"protocol": "https",
+					"host": [
+						"web-api-rest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "PUT ID",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://web-api-rest.herokuapp.com/restaurants",
+					"protocol": "https",
+					"host": [
+						"web-api-rest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get ID 200 after PUT",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://web-api-rest.herokuapp.com/restaurants",
+					"protocol": "https",
+					"host": [
+						"web-api-rest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": []
+		},
+		{
+			"name": "Get Statistics",
+			"request": {
+				"method": "GET",
+				"header": [],
+				"url": {
+					"raw": "https://web-api-rest.herokuapp.com/restaurants",
+					"protocol": "https",
+					"host": [
+						"web-api-rest",
+						"herokuapp",
+						"com"
+					],
+					"path": [
+						"restaurants"
+					]
+				}
+			},
+			"response": []
+		}
+	]
+}
