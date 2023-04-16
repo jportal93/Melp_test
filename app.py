@@ -1,13 +1,11 @@
+import math
+import os
+
+from dotenv import load_dotenv
 from flask import Flask
 from flask_restx import Api, Resource, fields, Namespace
 from flask_sqlalchemy import SQLAlchemy
-from dotenv import load_dotenv
-import os
-import math
 from sqlalchemy import and_
-
-
-
 
 app = Flask(__name__)
 
@@ -19,12 +17,12 @@ if 'DATABASE_URL' in os.environ:
 else:
     app.config['SQLALCHEMY_DATABASE_URI'] = 'postgresql://postgres:123@db:5432/test'
 
-
 app.config['SQLALCHEMY_TRACK_MODIFICATIONS'] = False
 db = SQLAlchemy(app)
 
-api = Api(app,version='1.0',title='Melp',
-          description='Restaurant Info',default='CRUD')
+api = Api(app, version='1.0', title='Melp',
+          description='Restaurant Info', default='CRUD')
+
 
 class Restaurant(db.Model):
     __tablename__ = 'restaurants'
@@ -45,7 +43,6 @@ class Restaurant(db.Model):
             setattr(self, key, value)
 
 
-
 restaurant_fields = api.model('Restaurant', {
     'id': fields.String,
     'rating': fields.Integer,
@@ -61,10 +58,8 @@ restaurant_fields = api.model('Restaurant', {
 })
 
 
-
 class Restaurants(Resource):
     @api.marshal_with(restaurant_fields)
-
     def get(self):
         restaurants = Restaurant.query.all()
         return restaurants
@@ -77,10 +72,10 @@ class Restaurants(Resource):
         db.session.commit()
         return restaurant
 
+
 class RestaurantDetail(Resource):
     @api.marshal_with(restaurant_fields)
     def get(self, id):
-
         restaurant = Restaurant.query.get_or_404(id)
         return restaurant, 200
 
@@ -100,7 +95,6 @@ class RestaurantDetail(Resource):
         restaurant.lng = api.payload.get('lng', restaurant.lng)
         db.session.commit()
         return restaurant
-
 
     def delete(self, id):
         restaurant = Restaurant.query.get_or_404(id)
@@ -124,8 +118,6 @@ stats_model = api.model('RestaurantStats', {
 statistics_ns = Namespace('restaurants', description='Restaurant statistics')
 
 
-
-
 @statistics_ns.route('/statistics')
 class RestaurantStats(Resource):
     @api.expect(location_model)
@@ -137,22 +129,17 @@ class RestaurantStats(Resource):
         radius = api.payload['radius']
         radius_degrees = radius / 111000
 
-
-
         restaurants = Restaurant.query.filter(and_(
             Restaurant.lat.between(latitude - radius_degrees, latitude + radius_degrees),
             Restaurant.lng.between(longitude - radius_degrees, longitude + radius_degrees)
         )).all()
 
-
         count = len(restaurants)
         avg = sum(restaurant.rating for restaurant in restaurants) / count if count > 0 else 0
-        std = math.sqrt(sum((restaurant.rating - avg)**2 for restaurant in restaurants) / count) if count > 0 else 0
+        std = math.sqrt(sum((restaurant.rating - avg) ** 2 for restaurant in restaurants) / count) if count > 0 else 0
 
         # Devolver la respuesta como un objeto JSON
         return {'count': count, 'avg': avg, 'std': std}, 200
-
-
 
 
 api.add_namespace(statistics_ns)
